@@ -55,6 +55,20 @@ And /^I am logged into the admin panel$/ do
   end
 end
 
+And /^I am not logged in to the admin panel$/ do
+  if page.respond_to? :should_not
+    page.should_not have_content('Logged in as')
+  else
+    assert page.has_content?('Logged in as')
+  end
+end
+
+Given /^the existence of article with title "(.*?)" and text "(.*?)" and ID (\d+)$/ do |arg1, arg2, arg3|
+   Article.create!({:title => arg1, :body => arg2, :id => arg3})
+end
+
+
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }

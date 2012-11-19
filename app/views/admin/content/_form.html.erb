@@ -123,7 +123,6 @@
         <%= text_area('article', 'body_and_extended', {:class => 'large', :height => '300px', :rows => '20'}) if current_user.editor == 'simple' %>
         <%= render_macros(@macros) if current_user.editor == 'simple' %>
       </div>
-    </div>
 
 		<h4><%= _("Tags") %></h4>
     <div class='class'>
@@ -148,6 +147,19 @@
     </ul>
   </div>    
   </div>
+
+<div class=''>
+  <h4><%= _("Merge Articles") %></h4>
+  <div class='clearfix'>
+    <label for="article_id"><%= _("Article ID") %></label>
+    <div class='input'>
+      <%= text_field('article', 'id', {:class => 'span5'}) %>
+    </div>
+    <input type="submit" value='<%= _("Merge") %>' class='btn' />
+  </div>
+
+  </ul>
+</div>
 
 </div>
 
