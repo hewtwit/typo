@@ -280,4 +280,8 @@ class ArticlesController < ContentController
       # TODO :Check in request_article type of DATA made in next step
     end
   end
+
+  def merge_with(MergeVictim)
+     self.body = self.body + Article.find(MergeVictim).body
+  end
 end

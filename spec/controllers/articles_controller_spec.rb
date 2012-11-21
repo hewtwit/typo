@@ -727,3 +727,13 @@ describe ArticlesController, "assigned keywords" do
     assigns(:keywords).should == "typo, is, amazing"
   end
 end
+
+
+describe ArticlesController do
+  describe 'Merging Artivles' do
+    it 'should call the model method that merges articles' do
+      Movie.should_receive(:merge_with).with(1).
+      post :search_tmdb, {:search_terms => 'hardware'}
+    end
+  end
+end
