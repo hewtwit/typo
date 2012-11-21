@@ -630,5 +630,7 @@ describe Article do
     end
 
   end
+
+
 end
 

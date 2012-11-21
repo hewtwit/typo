@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   match 'articles/tag', :to => 'articles#tag', :format => false
   match 'articles/category', :to => 'articles#category', :format => false
 
+
   # SetupController
   match '/setup', :to => 'setup#index', :format => false
   match '/setup/confirm', :to => 'setup#confirm', :format => false

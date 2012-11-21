@@ -18,8 +18,12 @@ module NavigationHelpers
     when /^the new article page$/
       '/admin/content/new'
 
-    when /^the edit page for (.*)$/i
-       '/admin/content/edit/(Article.find_by_name($1))'
+    when /^the edit page for "(.*?)"/
+       '/admin/content/edit/' + Article.find_by_title($1).id.to_s
+
+  #  when /the children list page for "(.+)"/
+  #      p = Parent.find_by_name($1)
+  #      parent_children_path(p)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

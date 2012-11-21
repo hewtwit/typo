@@ -11,13 +11,13 @@ Feature: Merge Articles
 
 
   Scenario: A non-admin cannot merge two articles (sad path)
-    Given I am on the edit page for "Blahtitle1"
-    And I am not logged in to the admin panel
+    Given I am not logged in to the admin panel
+    And I am on the edit page for "Blahtitle1"
     Then I should not see "Merge Article"
 
   Scenario: A non-admin cannot merge two articles (happy path)
-    Given I am on the edit page for "Blahtitle1"
-    And I am logged into the admin panel
+    Given I am logged into the admin panel
+    And I am on the edit page for "Blahtitle1"
     Then I should see "Merge Articles"
 
 
@@ -29,6 +29,7 @@ Feature: Merge Articles
     Then I should be on the admin content page
     When I go to the home page
     Then I should see "Blahtitle1"
+    And I should not see "Blahtitle2"
     When I follow "Blahtitle1"
     Then I should see "Blahtext1"
     And I should see "Blahtext2"
