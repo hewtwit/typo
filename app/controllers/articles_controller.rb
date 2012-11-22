@@ -141,6 +141,18 @@ class ArticlesController < ContentController
     end
   end
 
+  def merge
+    if params[:merge_victim] then
+    @current_article = Article.find(params[:id])
+    @merge_victim_id = params[:merge_victim]
+    @current_article.merge_with(@merge_victim_id)
+       # flash
+    else
+      # flash nothing to merger
+    end
+  redirect_to 'admin/content/edit' + params[:id]
+  end
+
   # TODO: Move to TextfilterController?
   def markup_help
     render :text => TextFilter.find(params[:id]).commenthelp
@@ -281,7 +293,5 @@ class ArticlesController < ContentController
     end
   end
 
-  def merge_with(MergeVictim)
-     self.body = self.body + Article.find(MergeVictim).body
-  end
+
 end

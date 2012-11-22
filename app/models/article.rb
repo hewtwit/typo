@@ -289,6 +289,13 @@ class Article < Content
     end
   end
 
+  def merge_with(victim)
+    mergevictim = victim.to_i
+    oldbody = self.body
+    self.body = oldbody + Article.find(mergevictim).body
+    self.save
+  end
+
   # Finds one article which was posted on a certain date and matches the supplied dashed-title
   # params is a Hash
   def self.find_by_permalink(params)

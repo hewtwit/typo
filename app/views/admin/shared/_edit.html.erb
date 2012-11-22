@@ -4,3 +4,14 @@
   <%= render :partial => "form" %>
 
 <% end %>
+
+<%= form_tag({:controller=>"/articles", :action=>"merge", :method => "post", :id => @article.id}) do %>
+
+    <h4><%= _("Merge Articles") %></h4>
+
+    Article ID
+    <input id="merge_victim" type="text" name="merge_victim" class='large' />
+    <p></p>
+    <%= submit_tag(_("Merge"), {:class => 'btn'}) %>
+
+<% end %>
